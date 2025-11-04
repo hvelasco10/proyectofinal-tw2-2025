@@ -6,6 +6,7 @@ use App\Http\Controllers\Auth\AccesoController;
 use App\Http\Controllers\Auth\UsuarioController;
 use App\Http\Controllers\TipoController;
 use App\Http\Controllers\MateriaController;
+use App\Http\Controllers\MateriasXUsuarioController;
 
 /*
 |--------------------------------------------------------------------------
@@ -29,9 +30,12 @@ Route::post('/logout', [AccesoController::class, 'cerrarSesion'])->name('logout'
 // Rutas protegidas
 Route::middleware('auth')->group(function(){
     Route::resource('usuarios', UsuarioController::class)->only(['index', 'create', 'store', 'edit', 'update', 'destroy']);
-});
 
-Route::middleware('auth')->group(function(){
     Route::resource('tipos', TipoController::class)->only(['index', 'create', 'store', 'edit', 'update', 'destroy']);
+    Route::resource('materias', MateriaController::class)->only(['index', 'create', 'store', 'edit', 'update', 'destroy']);
+
+    Route::get('materiasxusuario/{id}', [MateriasXUsuarioController::class, 'index'])->name('materiasxusuario.index');
+    Route::post('materiasxusuario/{id}/asignar', [MateriasXUsuarioController::class, 'asignar'])->name('materiasxusuario.asignar');
+    Route::delete('materiasxusuario/{asignacion_id}/desasignar', [MateriasXUsuarioController::class, 'desasignar'])->name('materiasxusuario.desasignar');
+
 });
-Route::resource('materias', MateriaController::class)->only(['index', 'create', 'store', 'edit', 'update', 'destroy']);
