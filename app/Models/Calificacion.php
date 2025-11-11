@@ -18,10 +18,10 @@ class Calificacion extends Model
     ];
 
     public function materiasXUsuarios(){
-        return $this->belongsTo(MateriaXUsuario::class, 'materias_x_usuarios_id');
+        return $this->belongsTo(MateriasXUsuario::class, 'materias_x_usuarios_id');
     }
 
-    public function materia(){
+    public function materias(){
         return $this->hasOneThrough(Materia::class, 'id', 'id', 'materias_x_usuarios_id', 'materias_id');
     }
 

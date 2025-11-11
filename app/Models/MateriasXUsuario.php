@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class MateriaXUsuario extends Model
+class MateriasXUsuario extends Model
 {
     //use HasFactory;
     public $timestamps = false;
@@ -26,6 +26,6 @@ class MateriaXUsuario extends Model
     }
 
     public function calificaciones(){
-        return $this->belongsTo(Calificacion::class, 'materias_x_usuarios_id');
+        return $this->hasMany(Calificacion::class, 'materias_x_usuarios_id');
     }
 }
