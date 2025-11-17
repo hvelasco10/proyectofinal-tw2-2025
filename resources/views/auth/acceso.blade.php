@@ -6,7 +6,7 @@
 <style>
     .login-container {
         min-height: 100vh;
-        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        background: linear-gradient(135deg, #4d6effff 0%, #041356ff 100%);
     }
     .login-card {
         backdrop-filter: blur(10px);
