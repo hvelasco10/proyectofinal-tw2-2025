@@ -90,7 +90,7 @@
     
     function eliminarTipo(id, tipo){
         Swal.fire({
-            title: "¿Eliminar tipo?",
+            title: "¿Eliminar el tipo de usuario?",
             text: `¿Estás seguro de eliminar al usuario "${tipo}"?`,
             icon: "warning",
             showCancelButton: true,
